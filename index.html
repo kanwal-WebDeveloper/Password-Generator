@@ -1,21 +1,207 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Random Password Generator</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Password Generator</title>
+
+    <!-- FONT -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- ICONS -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css"
+        rel="stylesheet">
+
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+
     <div class="container">
-        <h1>Generate a <br><span>Random Password</span></h1>
-        <div class="display">
-            <input type="text" id="password" placeholder="Password">
-            <img onclick="copyPassword()" src="images/copy.png" alt="">
+
+        <!-- LEFT ICON -->
+
+        <div class="left-box">
+
+            <div class="icon-card">
+
+                <div class="plus plus1">+</div>
+                <div class="plus plus2">+</div>
+                <div class="plus plus3">+</div>
+
+                <div class="shield-icon">
+                    <i class="ri-shield-check-fill"></i>
+                </div>
+
+                <div class="mini-pass">
+                    * * *
+                </div>
+
+            </div>
+
         </div>
-        <button onclick="createPassword()"><img src="images/generate.png" alt="">Generate Password</button>
+
+        <!-- RIGHT CONTENT -->
+
+        <div class="right-content">
+
+            <!-- HEADING -->
+
+            <h1>
+                Generate a
+                <span>Random Password</span>
+            </h1>
+
+            <p class="description">
+                Create a strong and secure password in just one click.
+            </p>
+
+            <!-- PASSWORD INPUT -->
+
+            <div class="password-box">
+
+                <input
+                    type="text"
+                    id="password"
+                    placeholder="Password will appear here">
+
+                <button onclick="copyPassword()" class="copy-btn">
+                    <i class="ri-file-copy-line"></i>
+                </button>
+
+            </div>
+
+            <!-- GENERATE BUTTON -->
+
+            <div class="btn-row">
+
+                <button class="generate-btn" onclick="createPassword()">
+
+                    <i class="ri-lock-line"></i>
+
+                    Generate Password
+
+                </button>
+
+                <button class="refresh-btn" onclick="createPassword()">
+                    <i class="ri-refresh-line"></i>
+                </button>
+
+            </div>
+
+        </div>
+
+        <!-- BOTTOM SETTINGS -->
+
+        <div class="bottom-section">
+
+            <!-- LENGTH -->
+
+            <div class="setting-box length-box">
+
+                <label>Password Length</label>
+
+                <div class="range-row">
+
+                    <input
+                        type="range"
+                        min="6"
+                        max="30"
+                        value="12"
+                        id="lengthRange">
+
+                    <div class="length-value" id="lengthValue">
+                        12
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- CHECKBOXES -->
+
+            <div class="setting-box">
+
+                <label class="check-label">
+
+                    <input type="checkbox" id="uppercase" checked>
+
+                    <span>Include Uppercase</span>
+
+                </label>
+
+                <small>A B C</small>
+
+            </div>
+
+            <div class="setting-box">
+
+                <label class="check-label">
+
+                    <input type="checkbox" id="lowercase" checked>
+
+                    <span>Include Lowercase</span>
+
+                </label>
+
+                <small>a b c</small>
+
+            </div>
+
+            <div class="setting-box">
+
+                <label class="check-label">
+
+                    <input type="checkbox" id="numbers" checked>
+
+                    <span>Include Numbers</span>
+
+                </label>
+
+                <small>1 2 3</small>
+
+            </div>
+
+            <div class="setting-box">
+
+                <label class="check-label">
+
+                    <input type="checkbox" id="symbols" checked>
+
+                    <span>Include Symbols</span>
+
+                </label>
+
+                <small>! @ #</small>
+
+            </div>
+
+        </div>
+
+        <!-- FOOTER -->
+
+        <div class="footer">
+
+            <i class="ri-shield-check-fill"></i>
+
+            Designed & Developed by
+
+            <span>Kanwal Imran</span>
+
+        </div>
+
     </div>
 
     <script src="script.js"></script>
+
 </body>
+
 </html>
