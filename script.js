@@ -1,29 +1,81 @@
-const passwordBox = document.getElementById('password');
-const length = 12;
+const passwordBox = document.getElementById("password");
+
+const lengthRange = document.getElementById("lengthRange");
+
+const lengthValue = document.getElementById("lengthValue");
+
+const uppercaseCheck = document.getElementById("uppercase");
+
+const lowercaseCheck = document.getElementById("lowercase");
+
+const numbersCheck = document.getElementById("numbers");
+
+const symbolsCheck = document.getElementById("symbols");
 
 const upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-const lowerCase = "abcdefghijklmnopqrstuvwxyz";
-const numbers = "0123456789";
-const symbols = "!@#$%^&*()_+-=[]{}|;:',.<>?/`~";
 
-const allChars = upperCase + lowerCase + numbers + symbols;
+const lowerCase = "abcdefghijklmnopqrstuvwxyz";
+
+const numbers = "0123456789";
+
+const symbols = "!@#$%^&*()_+?><:{}[]";
+
+/* RANGE */
+
+lengthRange.addEventListener("input", () => {
+
+    lengthValue.innerText = lengthRange.value;
+
+});
+
+/* GENERATE PASSWORD */
 
 function createPassword() {
+
+    let allChars = "";
+
+    if (uppercaseCheck.checked) {
+        allChars += upperCase;
+    }
+
+    if (lowercaseCheck.checked) {
+        allChars += lowerCase;
+    }
+
+    if (numbersCheck.checked) {
+        allChars += numbers;
+    }
+
+    if (symbolsCheck.checked) {
+        allChars += symbols;
+    }
+
+    if (allChars === "") {
+
+        alert("Select at least one option");
+
+        return;
+    }
+
     let password = "";
 
-    password += upperCase[Math.floor(Math.random() * upperCase.length)];
-    password += lowerCase[Math.floor(Math.random() * lowerCase.length)];
-    password += numbers[Math.floor(Math.random() * numbers.length)];
-    password += symbols[Math.floor(Math.random() * symbols.length)];
+    for (let i = 0; i < lengthRange.value; i++) {
 
-    while (password.length < length) {
-        password += allChars[Math.floor(Math.random() * allChars.length)];
+        password += allChars[
+            Math.floor(Math.random() * allChars.length)
+        ];
     }
 
     passwordBox.value = password;
 }
 
+/* COPY PASSWORD */
+
 function copyPassword() {
-    passwordBox.select();
-    document.execCommand("copy");
+
+    if (passwordBox.value === "") return;
+
+    navigator.clipboard.writeText(passwordBox.value);
+
+    alert("Password Copied!");
 }
